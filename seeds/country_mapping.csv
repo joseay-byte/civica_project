@@ -1,0 +1,111 @@
+country_name,iso_2,iso_3,common_names,continent,is_axis,is_allied
+United States,US,USA,"USA, United States of America, EE.UU.",North America,0,1
+United Kingdom,GB,GBR,"UK, Great Britain, England",Europe,0,1
+Germany,DE,DEU,"Germany, Nazi Germany, Deutschland",Europe,1,0
+Soviet Union,SU,SUN,"USSR, Russia, URSS, CCCP",Europe/Asia,0,1
+Japan,JP,JPN,"Japan, Empire of Japan",Asia,1,0
+Italy,IT,ITA,"Italy, Kingdom of Italy",Europe,1,0
+France,FR,FRA,"France, Vichy France, Free France",Europe,0,1
+China,CN,CHN,"China, Republic of China, ROC",Asia,0,1
+Poland,PL,POL,"Poland",Europe,0,1
+Australia,AU,AUS,"Australia",Oceania,0,1
+Canada,CA,CAN,"Canada",North America,0,1
+Finland,FI,FIN,"Finland",Europe,1,0
+Hungary,HU,HUN,"Hungary",Europe,1,0
+Romania,RO,ROU,"Romania",Europe,1,0
+Bulgaria,BG,BGR,"Bulgaria",Europe,1,0
+Norway,NO,NOR,"Norway",Europe,0,1
+Netherlands,NL,NLD,"Netherlands, Holland, Dutch",Europe,0,1
+Belgium,BE,BEL,"Belgium",Europe,0,1
+Greece,GR,GRC,"Greece",Europe,0,1
+Yugoslavia,YU,YUG,"Yugoslavia",Europe,0,1
+New Zealand,NZ,NZL,"New Zealand",Oceania,0,1
+South Africa,ZA,ZAF,"South Africa",Africa,0,1
+India,IN,IND,"India, British India",Asia,0,1
+Philippines,PH,PHL,"Philippines",Asia,0,1
+Brazil,BR,BRA,"Brazil",South America,0,1
+Mexico,MX,MEX,"Mexico",North America,0,1
+Thailand,TH,THA,"Thailand, Siam",Asia,1,0
+Algeria,AL,DZA,"Algeria, Argelia",Africa,0,1
+Antigua,AT,ATG,"Antigua",North America,0,1
+Albania,ALB,ALB,"Albania",Europe,0,0
+Austria,AUT,AUT,"Austria",Europe,1,0
+Oman,OM,OMN,"Oman",Asia,0,1
+French Polynesia,PF,PYF,"French Polynesia, Bora Bora",Oceania,0,1
+Pacific Islands,PI,PAC,"Pacific Islands, Iwo Jima, Palmyra",Oceania,0,1
+Pakistan,PK,PAK,"Pakistan",Asia,0,1
+Burma,MM,MMR,"Burma, Myanmar",Asia,0,1
+New Guinea,PG,PNG,"New Guinea, Papua",Oceania,0,1
+Newfoundland,NF,NFL,"Newfoundland",North America,0,1
+Portuguese Timor,TL,TLS,"Portuguese Timor",Asia,0,1
+Switzerland,CH,CHE,"Switzerland, Swiss",Europe,0,0
+Czechoslovakia,CZ,CSK,"Czechoslovakia",Europe,0,1
+Nepal,NP,NPL,"Nepal",Asia,0,1
+Sweden,SE,SWE,"Sweden",Europe,0,0
+Cuba,CU,CUB,"Cuba",North America,0,1
+Malta,MT,MLT,"Malta",Europe,0,1
+Estonia,EE,EST,"Estonia",Europe,0,0
+Ruanda-Urundi,BI,BDI,"Ruanda-Urundi, Rwanda, Burundi",Africa,0,1
+Dutch East Indies,ID,IDN,"Dutch East Indies, Indonesia",Asia,0,1
+Egypt,EG,EGY,"Egypt",Africa,0,1
+Iraq,IQ,IRQ,"Iraq",Asia,0,1
+Ireland,IE,IRL,"Ireland, Eire",Europe,0,0
+Latvia,LV,LVA,"Latvia",Europe,0,0
+Iceland,IS,ISL,"Iceland",Europe,0,1
+Nauru,NR,NRU,"Nauru",Oceania,0,1
+Papua and New Guinea,PG,PNG,"Papua and New Guinea",Oceania,0,1
+Spain,ES,ESP,"Spain, España",Europe,0,0
+Turkey,TR,TUR,"Turkey",Europe/Asia,0,1
+Luxembourg,LU,LUX,"Luxembourg",Europe,0,1
+Malaya & Singapore,MY,MYS,"Malaya & Singapore, Malaysia",Asia,0,1
+Guam,GU,GUM,"Guam",Oceania,0,1
+Ethiopia,ET,ETH,"Ethiopia, Abyssinia",Africa,0,1
+French Indochina,VN,VNM,"French Indochina, Vietnam",Asia,0,1
+Korea,KR,KOR,"Korea",Asia,0,0
+Iran,IR,IRN,"Iran, Persia",Asia,0,1
+Denmark,DK,DNK,"Denmark",Europe,0,1
+Lithuania,LT,LTU,"Lithuania",Europe,0,0
+Mongolia,MN,MNG,"Mongolia",Asia,0,1
+South Seas Mandate,SM,SSM,"South Seas Mandate",Oceania,1,0
+Guyana,GY,GUY,"Guyana, British Guiana",South America,0,1
+Kuwait,KU,KWT,"Kuwait",Asia,0,1
+Dominican Republic,DR,DOM,"Dominican Republic",North America,0,1
+Panama Canal Zone,PQ,PCZ,"Panama Canal Zone",North America,0,1
+Liberia,LI,LBR,"Liberia",Africa,0,1
+Korea,KO,KOR,"Korea",Asia,0,0
+Puerto Rico,PR,PRI,"Puerto Rico",North America,0,1
+Panama,PM,PAN,"Panama",North America,0,1
+Somalia,SO,SOM,"Somalia",Africa,1,0
+Canton Island,CT,CAN,"Canton Island",Oceania,0,1
+Fiji,FJ,FJI,"Fiji",Oceania,0,1
+Haiti,HA,HTI,"Haiti",North America,0,1
+Nicaragua,NK,NIC,"Nicaragua",North America,0,1
+Turks and Caicos,TI,TCA,"Turks and Caicos",North America,0,1
+Nigeria,NI,NGA,"Nigeria",Africa,0,1
+Spain,SP,ESP,"Spain",Europe,0,0
+Dahomey,DY,BEN,"Dahomey, Benin",Africa,0,1
+United Kingdom,UK,GBR,"United Kingdom",Europe,0,1
+Iceland,IL,ISL,"Iceland",Europe,0,1
+Tonga,TO,TON,"Tonga",Oceania,0,1
+New Hebrides,NH,VUT,"New Hebrides, Vanuatu",Oceania,0,1
+Bahrain,BN,BHR,"Bahrain",Asia,0,1
+Greenland,GL,GRL,"Greenland",North America,0,1
+Hawaii,HI,HAW,"Hawaii",Oceania,0,1
+New Guinea,NG,PNG,"New Guinea",Oceania,0,1
+Senegal,SG,SEN,"Senegal",Africa,0,1
+Costa Rica,CS,CRI,"Costa Rica",North America,0,1
+Italy,IY,ITA,"Italy",Europe,1,0
+Turkey,TU,TUR,"Turkey",Europe/Asia,0,1
+Bahamas,BA,BHS,"Bahamas",North America,0,1
+Eritrea,ER,ERI,"Eritrea",Africa,1,0
+Saint Lucia,LC,LCA,"Saint Lucia",North America,0,1
+Morocco,MC,MAR,"Morocco",Africa,0,1
+Ecuador,EQ,ECU,"Ecuador",South America,0,1
+Libya,LY,LBY,"Libya",Africa,1,0
+Tunisia,TS,TUN,"Tunisia",Africa,1,0
+Azores,AZ,AZO,"Azores, Portugal",Europe,0,1
+Brazil,BZ,BRA,"Brazil",South America,0,1
+Ghana,GH,GHA,"Ghana, Gold Coast",Africa,0,1
+Jamaica,JM,JAM,"Jamaica",North America,0,1
+Niue,NU,NIU,"Niue",Oceania,0,1
+Trinidad and Tobago,TD,TTO,"Trinidad and Tobago",South America,0,1

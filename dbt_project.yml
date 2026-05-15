@@ -52,3 +52,7 @@ models:
         {{ 'DB35_DEV_GOLD_DB' if target.name == 'dev' 
            else 'DB35_PRE_GOLD_DB' if target.name == 'pre' 
            else 'DB35_PRO_GOLD_DB' }}
+
+seeds:
+  ww2:
+    +database: DB35_DEV_SILVER_DB

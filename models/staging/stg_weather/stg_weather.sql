@@ -9,7 +9,7 @@ renamed_and_cast AS (
         -- Identificador de la estación (unimos con la tabla de estaciones luego)
         TRIM(STA) AS station_id,
         
-        CAST(Date AS DATE) AS date,
+        CAST(Date AS DATE) AS date_day,
         
         -- Temperaturas en Celsius
         CAST(MaxTemp AS FLOAT) AS max_temp_c,
