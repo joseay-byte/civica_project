@@ -39,9 +39,9 @@ models:
   ww2:
     staging:
       +database: |
-        {{ 'DB35_DEV_BRONZE_DB' if target.name == 'dev' 
-           else 'DB35_PRE_BRONZE_DB' if target.name == 'pre' 
-           else 'DB35_PRO_BRONZE_DB' }}
+        {{ 'DB35_DEV_SILVER_DB' if target.name == 'dev' 
+           else 'DB35_PRE_SILVER_DB' if target.name == 'pre' 
+           else 'DB35_PRO_SILVER_DB' }}
     intermediate:
       +database: |
         {{ 'DB35_DEV_SILVER_DB' if target.name == 'dev' 
