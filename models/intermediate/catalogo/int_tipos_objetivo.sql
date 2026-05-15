@@ -11,9 +11,6 @@ objetivos_unicos AS (
         UPPER(TRIM(TARGET_TYPE)) AS tipo_objetivo,
         UPPER(TRIM(TARGET_INDUSTRY)) AS industria_objetivo
     FROM stg_operaciones
-    -- Filtramos para no traernos filas que estén completamente vacías en ambos campos
-    WHERE TARGET_TYPE IS NOT NULL 
-       OR TARGET_INDUSTRY IS NOT NULL
 )
 
 SELECT
