@@ -10,3 +10,8 @@ sources:
     schema: dbt
     tables:
       - name: RAW_LOCATIONS
+      - name: RAW_WEATHER
+      - name: RAW_STATION_WEATHER
+      - name: RAW_AERIAL_OPERATIONS
+      - name: RAW_WW2_D
+      - name: RAW_EVENTS
