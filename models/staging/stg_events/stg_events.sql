@@ -27,3 +27,4 @@ renamed_and_cast AS (
 )
 
 SELECT * FROM renamed_and_cast
+WHERE event_name != 'Event'
