@@ -3,10 +3,7 @@ version: 2
 sources:
   - name: raw_data
     # Usamos Jinja para que la base de datos cambie según el entorno
-    database: |
-      {{ 'DB35_DEV_BRONZE_DB' if target.name == 'dev' 
-         else 'DB35_PRE_BRONZE_DB' if target.name == 'pre' 
-         else 'DB35_PRO_BRONZE_DB' }}
+    database: "{{ env_var('DBT_BRONZE_DB', 'DB35_DEV_BRONZE_DB') }}"
     schema: dbt
     tables:
       - name: RAW_LOCATIONS

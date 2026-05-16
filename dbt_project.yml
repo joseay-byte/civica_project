@@ -41,20 +41,20 @@ models:
     # 1. Capa Staging: Se materializa siempre como vistas
     staging:
       +materialized: view
-      +database: DB35_DEV_BRONZE_DB   # Tu base de datos origen
-      +schema: STAGING
+      +database: DB35_DEV_SILVER_DB   # Tu base de datos origen
+      +schema: dbt
 
     # 2. Capa Intermediate (Silver): Se materializa como tablas limpias
     intermediate:
       +materialized: table
       +database: DB35_DEV_SILVER_DB
-      +schema: INTERMEDIATE
+      +schema: dbt
 
     # 3. Capa Marts (Gold): Se materializa como tablas finales analíticas
     marts:
       +materialized: table
       +database: DB35_DEV_GOLD_DB
-      +schema: MARTS
+      +schema: dbt
 
 seeds:
   ww2:
