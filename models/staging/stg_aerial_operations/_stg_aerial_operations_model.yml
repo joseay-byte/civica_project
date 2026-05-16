@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_aerial_operations
+    description: "Capa Silver: Registro de misiones de bombardeo aéreo de la WWII."
+    columns:
+      - name: mission_date
+        description: "Fecha de la misión aérea."
+        tests:
+          - not_null
+      - name: country_origin
+        description: "País al que pertenecía la aeronave."
+      - name: takeoff_latitude
+        description: "Latitud del punto de despegue."
+      - name: target_country
+        description: "País objetivo del bombardeo."
+      - name: target_latitude
+        description: "Latitud exacta del objetivo (clave para mapas de calor)."
+      - name: target_longitude
+        description: "Longitud exacta del objetivo."
+      - name: total_tons_bombs
+        description: "Peso total de las bombas lanzadas en toneladas."

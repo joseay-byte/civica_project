@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_weather
+    description: "Capa Silver: Datos meteorológicos diarios de la WWII limpios y tipados."
+    columns:
+      - name: station_id
+        description: "ID de la estación meteorológica."
+        tests:
+          - not_null
+      - name: date_day
+        description: "Fecha de la observación."
+        tests:
+          - not_null
+      - name: max_temp_c
+        description: "Temperatura máxima registrada en Celsius."
+      - name: min_temp_c
+        description: "Temperatura minima registrada en Celsius."
+      - name: mean_temp_c
+        description: "Promedio de temperatura"
+      - name: precipitation_mm
+        description: "Precipitación total en milímetros."
+      - name: snowfall_mm
+        description: "Nevada total en milimetros"
+      - name: year_raw,
+        description: "El año en siglos"
+      - name: month_raw,
+        description: "El numero del mes"
+      - name: day_raw
+        description: "El numero del dia"

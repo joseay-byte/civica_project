@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: "Capa Silver: Listado de eventos clave, batallas y tratados de la WWII."
+    columns:
+      - name: event_name
+        description: "Nombre oficial del evento histórico."
+        tests:
+          - not_null
+      - name: event_date_raw
+        description: "Fecha o rango de fechas en formato texto original."
+      - name: allied_participants
+        description: "Países o fuerzas del bando aliado que participaron."
+      - name: axis_participants
+        description: "Países o fuerzas del bando del eje que participaron."
+      - name: winner_side
+        description: "Bando que resultó victorioso (ALLIES, AXIS, N/A, etc.)."
+      - name: theater
+        description: "Teatro de operaciones geográfico (EUROPE, PACIFIC, ASIA, etc.)."
+      - name: event_type
+        description: "Categoría del evento (Battle, Treaty, Incident, War)."
