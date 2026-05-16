@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_stations_weather
+    description: "Capa Silver: Ubicación y metadatos de las estaciones meteorológicas."
+    columns:
+      - name: station_id
+        description: "Identificador único (WBAN) de la estación."
+        tests:
+          - unique
+          - not_null
+      - name: station_name
+        description: "Nombre descriptivo de la ubicación."
+      - name: country_code
+        description: "Código de dos letras del país o estado."
+      - name: elevation
+        description: "Elevación de la estación sobre el nivel del mar."
+      - name: latitude
+        description: "Latitud geográfica en formato decimal."
+      - name: longitude
+        description: "Longitud geográfica en formato decimal."

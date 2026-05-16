@@ -10,3 +10,14 @@ sources:
     schema: dbt
     tables:
       - name: RAW_LOCATIONS
+        description: "Ubicaciones estratégicas e infraestructuras militares utilizadas en la guerra."
+      - name: RAW_WEATHER
+        description: "Datos meteorológicos diarios históricos de las estaciones durante el periodo de guerra."
+      - name: RAW_STATION_WEATHER
+        description: "Catálogo maestro de las estaciones meteorológicas con sus coordenadas y elevación."
+      - name: RAW_AERIAL_OPERATIONS
+        description: "Registro de operaciones aéreas, misiones de bombardeo, aeronaves y toneladas de carga arrojada."
+      - name: RAW_WW2_D
+        description: "Estadísticas agregadas de bajas militares, civiles y población por país en 1939."
+      - name: RAW_EVENTS
+        description: "Cronología de hitos históricos, batallas, tratados y participantes durante el conflicto."

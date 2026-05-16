@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_locations
+    description: "Capa Silver: Instalaciones de la WWII limpias y tipadas."
+    columns:
+      - name: name
+        description: "Nombre de la localización"
+      - name: type
+        description: "Tipo de edificación"
+      - name: location
+        description: "Ciudad y region, separadas por una coma Ej: Stettin, pommern"
+      - name: country
+        description: "Pais donde se situa"
+      - name: lat
+        description: "Latitud"
+      - name: log
+        description: "Longitud"
+      - name: affiliation
+        description: "Afiliacion de la estructura con 3 valores Axis, Allies o neutral"
+      - name: strategic_value
+        description: "Evaluacion como de estrategico es el lugar con 3 valores high, medium y low"
+

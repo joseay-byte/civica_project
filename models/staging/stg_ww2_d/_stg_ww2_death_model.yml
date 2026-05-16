@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_ww2_d
+    description: "Capa Silver: Estadísticas de mortalidad y población por país durante la WWII."
+    columns:
+      - name: country_name
+        description: "Nombre del país o territorio."
+        tests:
+          - unique
+          - not_null
+      - name: population_1939
+        description: "Población total estimada al 1 de enero de 1939."
+      - name: military_deaths
+        description: "Muertes militares por todas las causas."
+      - name: civilian_deaths
+        description: "Muertes civiles debidas a actividades militares o crímenes contra la humanidad."
+      - name: total_deaths
+        description: "Suma total de muertes estimadas."
+      - name: deaths_pct_population
+        description: "Muertes como porcentaje de la población de 1939."
+      - name: avg_deaths_pct
+        description: "Porcentaje medio de muertes calculado."
+      - name: military_wounded
+        description: "Número de militares heridos en combate."
