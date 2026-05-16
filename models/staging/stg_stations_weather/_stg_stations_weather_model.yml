@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_stations
+  - name: stg_stations_weather
     description: "Capa Silver: Ubicación y metadatos de las estaciones meteorológicas."
     columns:
       - name: station_id

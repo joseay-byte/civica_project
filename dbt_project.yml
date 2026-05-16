@@ -36,22 +36,25 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  ww2:
+  ww2: # Nombre de tu proyecto
+    
+    # 1. Capa Staging: Se materializa siempre como vistas
     staging:
-      +database: |
-        {{ 'DB35_DEV_SILVER_DB' if target.name == 'dev' 
-           else 'DB35_PRE_SILVER_DB' if target.name == 'pre' 
-           else 'DB35_PRO_SILVER_DB' }}
+      +materialized: view
+      +database: DB35_DEV_BRONZE_DB   # Tu base de datos origen
+      +schema: STAGING
+
+    # 2. Capa Intermediate (Silver): Se materializa como tablas limpias
     intermediate:
-      +database: |
-        {{ 'DB35_DEV_SILVER_DB' if target.name == 'dev' 
-           else 'DB35_PRE_SILVER_DB' if target.name == 'pre' 
-           else 'DB35_PRO_SILVER_DB' }}
+      +materialized: table
+      +database: DB35_DEV_SILVER_DB
+      +schema: INTERMEDIATE
+
+    # 3. Capa Marts (Gold): Se materializa como tablas finales analíticas
     marts:
-      +database: |
-        {{ 'DB35_DEV_GOLD_DB' if target.name == 'dev' 
-           else 'DB35_PRE_GOLD_DB' if target.name == 'pre' 
-           else 'DB35_PRO_GOLD_DB' }}
+      +materialized: table
+      +database: DB35_DEV_GOLD_DB
+      +schema: MARTS
 
 seeds:
   ww2:

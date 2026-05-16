@@ -210,4 +210,4 @@ models:
         description: "El rol o alianza del país específico durante dicho evento militar."
         tests:
           - accepted_values:
-              values: ['ALLIED', 'AXIS']
+              values: ['ALLIED', 'AXIS', 'Neutral/Other']

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_ww2_deaths
+  - name: stg_ww2_d
     description: "Capa Silver: Estadísticas de mortalidad y población por país durante la WWII."
     columns:
       - name: country_name
