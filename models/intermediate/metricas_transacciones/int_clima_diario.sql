@@ -1,4 +1,8 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='incremental',
+    unique_key='id_registro_clima',
+    incremental_strategy='merge'
+) }}
 
 WITH stg_weather AS (
     -- Ni siquiera tocamos la columna DATE. Armamos la fecha con DATE_FROM_PARTS
