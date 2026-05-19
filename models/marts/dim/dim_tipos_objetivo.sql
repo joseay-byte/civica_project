@@ -10,5 +10,6 @@ with objetivos_silver as (
 select
     id_objetivo,
     tipo_objetivo,
-    industria_objetivo
+    industria_objetivo,
+    macro_categoria
 from objetivos_silver
