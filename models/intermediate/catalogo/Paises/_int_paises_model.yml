@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_paises
+    description: "Dimensión unificada de países basada en el registro maestro de la semilla."
+    columns:
+      - name: id_pais
+        description: "Clave primaria (Hash del nombre del país estandarizado)."
+        tests:
+          - unique
+          - not_null
+      - name: bando_principal
+        description: "Clasificación analítica del bando para el modelo estrella."
+        tests:
+          - accepted_values:
+              values: ['Allies', 'Axis', 'Neutral/Other']

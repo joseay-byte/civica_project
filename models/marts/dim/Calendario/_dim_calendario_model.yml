@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: dim_calendario
+    description: "Dimensión temporal maestra (Capa Gold) optimizada para Power BI. Permite filtrar y agrupar por años, meses y trimestres todas las estrellas del modelo (operaciones, clima, eventos y bajas)."
+    config:
+      tags: ['gold', 'dimension']
+      
+    columns:
+      - name: id_fecha
+        description: "Clave primaria subrogada (Hash MD5) de la fecha. Se usa para conectar con todas las tablas de hechos."
+        tests:
+          - unique
+          - not_null
+
+      - name: fecha_completa
+        description: "Fecha cronológica en formato DATE real. Útil para jerarquías temporales continuas en Power BI."
+        tests:
+          - unique
+          - not_null
+
+      - name: anio_operacion
+        description: "Año de la operación o evento (Ej: 1939 - 1945). Clave para los segmentadores generales de las páginas."
+        tests:
+          - not_null
+
+      - name: numero_mes
+        description: "Número numérico del mes (1 al 12). Útil para ordenar el campo 'nombre_mes' cronológicamente en Power BI."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+      - name: nombre_mes
+        description: "Nombre del mes en formato texto (Ej: January, February). Para usar en ejes de gráficos de evolución temporal."
+        tests:
+          - not_null
+
+      - name: dia_mes
+        description: "Día numérico del mes (1 al 31)."
+        tests:
+          - not_null
+
+      - name: trimestre
+        description: "Trimestre del año (1 al 4) para agrupaciones a nivel macro."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4]

@@ -18,9 +18,9 @@ select
     
     altitud_cientos_pies,
     total_toneladas_bombas,
-    
-    latitud_despegue,
-    longitud_despegue,
+    -- Eliminamos latitud y longitud del despegue porque la gran mayoria son nulls
+    -- latitud_despegue,
+    -- longitud_despegue,
     latitud_objetivo,
     longitud_objetivo
 from operaciones_silver

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: fct_clima_diario
+    description: "Tabla de hechos transaccional (Capa Gold) que registra las mediciones meteorológicas diarias. Alimenta las páginas 4 (Temperatura) y 5 (Precipitaciones) del dashboard en Power BI."
+    config:
+      tags: ['gold', 'fact']
+
+    columns:
+      - name: id_registro_clima
+        description: "Clave primaria subrogada (Hash MD5) única por cada medición de estación y día."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_estacion
+        description: "Clave foránea para filtrar el clima por estación, coordenadas y país. Conecta con 'dim_estaciones_clima'."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_estaciones_clima')
+              field: id_estacion
+
+      - name: id_fecha
+        description: "Clave foránea temporal. Conecta con 'dim_calendario' para graficar la evolución mensual/anual."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_calendario')
+              field: id_fecha
+
+      - name: temp_max_c
+        description: "Temperatura máxima del día en grados Celsius. En Power BI, usar la agregación 'Máximo' para los KPIs y gráficos de líneas."
+
+      - name: temp_min_c
+        description: "Temperatura mínima del día en grados Celsius. En Power BI, usar la agregación 'Mínimo'."
+
+      - name: temp_media_c
+        description: "Temperatura media del día en grados Celsius. Útil para promedios mensuales."
+
+      - name: precipitacion_mm
+        description: "Total de lluvia en milímetros. En Power BI, usar la agregación 'Suma' para ver la acumulación mensual."
+
+      - name: nevada_mm
+        description: "Total de nieve en milímetros. En Power BI, usar la agregación 'Suma'."

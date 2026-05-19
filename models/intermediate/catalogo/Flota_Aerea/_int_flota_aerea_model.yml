@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_flota_aerea
+    description: "Catálogo dimensional de modelos de aeronaves y fuerzas aéreas involucradas en misiones de bombardeo."
+    columns:
+      - name: id_aeronave
+        description: "Clave primaria (Hash de modelo de avión + fuerza aérea)."
+        tests:
+          - unique
+          - not_null

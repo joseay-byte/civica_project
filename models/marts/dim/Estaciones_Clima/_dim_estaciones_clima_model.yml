@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dim_estaciones_clima
+    description: "Dimensión de estaciones meteorológicas (Capa Gold). Contiene los metadatos geográficos de las estaciones activas durante el conflicto, permitiendo analizar el clima y pintar mapas interactivos en Power BI."
+    config:
+      tags: ['gold', 'dimension']
+
+    columns:
+      - name: id_estacion
+        description: "Clave primaria subrogada (Hash MD5) basada en el STATION_ID de origen. Conecta directamente con la tabla de hechos 'fct_clima_diario'."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_pais
+        description: "Clave foránea (Hash MD5) que conecta con la dimensión maestra 'dim_paises' para ubicar políticamente la estación."
+        tests:
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais
+
+      - name: nombre_estacion
+        description: "Nombre oficial o descriptivo de la estación meteorológica o base aérea (Ej: MAISON BLANCHE, TELERGMA)."
+        tests:
+          - not_null
+
+      - name: elevacion
+        description: "Elevación de la estación en metros o pies respecto al nivel del mar. Campo numérico analítico."
+
+      - name: latitud
+        description: "Coordenada de latitud (Y) en formato decimal. Crucial para la geolocalización de las burbujas en el mapa de Power BI."
+        tests:
+          - not_null
+
+      - name: longitud
+        description: "Coordenada de longitud (X) en formato decimal. Crucial para la geolocalización de las burbujas en el mapa de Power BI."
+        tests:
+          - not_null

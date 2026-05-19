@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_calendario
+    description: "Dimensión temporal maestra generada dinámicamente que cubre todo el periodo histórico del conflicto."
+    columns:
+      - name: id_fecha
+        description: "Clave primaria sustituta (Hash MD5 de la fecha completa)."
+        tests:
+          - unique
+          - not_null
+      - name: fecha_completa
+        description: "Fecha en formato DATE real."
+        tests:
+          - unique
+          - not_null

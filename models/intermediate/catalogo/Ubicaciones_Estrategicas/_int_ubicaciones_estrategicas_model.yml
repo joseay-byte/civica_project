@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_ubicaciones_estrategicas
+    description: "Catálogo dimensional de infraestructuras de guerra, fábricas, astilleros y campos de prisioneros."
+    columns:
+      - name: id_ubicacion
+        description: "Clave primaria (Hash de nombre + coordenadas)."
+        tests:
+          - unique
+          - not_null
+      - name: id_pais
+        description: "Clave foránea que conecta con la dimensión de países."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais

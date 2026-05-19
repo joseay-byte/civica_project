@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_evento_participantes
+    description: "Tabla puente (Capa Gold) para resolver la relación Muchos a Muchos (N:M) entre los eventos históricos y los países participantes. Permite filtrar hitos cronológicos según las naciones involucradas y sus bandos."
+    config:
+      tags: ['gold', 'dimension']
+
+    columns:
+      - name: id_evento_participante
+        description: "Clave primaria subrogada (Hash MD5) que identifica de manera única la participación de un país en un evento específico."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_evento
+        description: "Clave foránea (Hash MD5) que conecta con la tabla de hechos 'fct_eventos_historicos'."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_eventos_historicos')
+              field: id_evento
+
+      - name: id_pais
+        description: "Clave foránea (Hash MD5) que conecta con la dimensión maestra 'dim_paises'."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais
+
+      - name: bando
+        description: "El bloque o alianza geopolítica a la que pertenecía el país durante este evento en particular."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ALLIED', 'AXIS', 'Neutral/Other']

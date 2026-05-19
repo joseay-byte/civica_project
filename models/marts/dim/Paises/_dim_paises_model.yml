@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_paises
+    description: "Dimensión geográfica y política (Capa Gold). Contiene el catálogo estandarizado de todas las naciones, imperios y colonias involucradas en el conflicto, incluyendo su continente y bando. Se usa en Power BI con 'Role-playing' (como País Origen y País Objetivo)."
+    config:
+      tags: ['gold', 'dimension']
+
+    columns:
+      - name: id_pais
+        description: "Clave primaria subrogada (Hash MD5) que identifica al país. Conecta con las tablas de hechos de bajas, operaciones aéreas y clima."
+        tests:
+          - unique
+          - not_null
+
+      - name: nombre_pais
+        description: "Nombre estandarizado del país, traducido al español para la visualización final."
+        tests:
+          - not_null
+
+      - name: codigo_pais
+        description: "Código del país de 2 letras (ISO-2 o nomenclatura de la época)."
+
+      - name: continente
+        description: "Región o continente principal al que pertenece el territorio, útil para agrupaciones geográficas a alto nivel."
+
+      - name: codigo_iso3
+        description: "Código internacional de 3 letras (ISO-3)."
+
+      - name: bando_principal
+        description: "Alineación histórica principal del país durante el conflicto."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Allies', 'Axis', 'Neutral/Other']

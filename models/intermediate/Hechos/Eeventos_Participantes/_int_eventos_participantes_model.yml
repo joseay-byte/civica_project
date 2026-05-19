@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: int_evento_participantes
+    description: "Tabla puente (Bridge) encargada de normalizar y romper la relación N:M entre eventos históricos y países participantes."
+    columns:
+      - name: id_evento_participante
+        description: "Clave primaria compuesta haseada."
+        tests:
+          - unique
+          - not_null
+      - name: id_evento
+        description: "Clave foránea que referencia al hito histórico."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_eventos_historicos')
+              field: id_evento
+      - name: id_pais
+        description: "Clave foránea que vincula al país individualizado como participante activo."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais
+      - name: bando
+        description: "El rol o alianza del país específico durante dicho evento militar."
+        tests:
+          - accepted_values:
+              values: ['ALLIED', 'AXIS', 'Neutral/Other']
