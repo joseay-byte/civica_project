@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_estaciones_clima
+    description: "Catálogo dimensional de las estaciones meteorológicas activas durante el conflicto."
+    columns:
+      - name: id_estacion
+        description: "Clave primaria (Hash del STATION_ID de origen)."
+        tests:
+          - unique
+          - not_null
+      - name: id_pais
+        description: "Clave foránea que conecta con la dimensión de países."
+        tests:
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais

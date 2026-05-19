@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_estadisticas_guerra_paises
+    description: "Tabla de hechos con las métricas acumuladas de demografía, bajas de guerra y heridos militares por nación."
+    columns:
+      - name: id_estadistica
+        description: "Clave primaria del registro de bajas."
+        tests:
+          - unique
+          - not_null
+      - name: id_pais
+        description: "Clave foránea que asocia las bajas con el catálogo analítico de países."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais

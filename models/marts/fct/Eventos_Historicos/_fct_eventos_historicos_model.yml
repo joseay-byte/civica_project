@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_eventos_historicos
+    description: "Tabla de hechos sin métricas (Factless Fact Table - Capa Gold). Registra la ocurrencia cronológica de eventos, batallas y tratados. Contiene dimensiones degeneradas propias del evento."
+    config:
+      tags: ['gold', 'fact', 'factless']
+
+    columns:
+      - name: id_evento
+        description: "Clave primaria subrogada (Hash MD5) única del evento histórico. Sirve para conectar con la tabla puente 'bridge_evento_participantes'."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_fecha_inicio
+        description: "Clave foránea que conecta la fecha en la que comenzó o sucedió el evento con la dimensión temporal 'dim_calendario'."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_calendario')
+              field: id_fecha
+
+      - name: nombre_evento
+        description: "Dimensión degenerada: Nombre oficial o descriptivo del hito histórico (Ej: Potsdam Conference, Attack on Pearl Harbor)."
+        tests:
+          - not_null
+
+      - name: teatro_operaciones
+        description: "Dimensión degenerada: Región geográfica macro donde tuvo lugar el evento (Ej: EUROPE, PACIFIC OCEAN, ASIA)."
+        
+      - name: tipo_evento
+        description: "Dimensión degenerada: Clasificación de la naturaleza del suceso (Ej: TREATY, INCIDENT, BATTLE)."
+
+      - name: bando_ganador
+        description: "Dimensión degenerada: Facción victoriosa del evento o bloque impulsado por el tratado (Ej: ALLIES, JAPAN, N/A)."

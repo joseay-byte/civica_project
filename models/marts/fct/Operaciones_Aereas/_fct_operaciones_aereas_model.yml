@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: fct_operaciones_aereas
+    description: "Tabla de hechos principal (Capa Gold) de operaciones y bombardeos aéreos. Es el núcleo analítico de las Páginas 1, 2 y 3 del dashboard. Conecta todas las dimensiones principales del modelo en estrella."
+    config:
+      tags: ['gold', 'fact', 'core']
+
+    columns:
+      - name: id_operacion
+        description: "Clave primaria subrogada (Hash MD5) única por cada misión de bombardeo registrada."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_fecha
+        description: "Clave foránea temporal. Conecta con 'dim_calendario' para filtrar misiones por años (1940-1945) y meses."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_calendario')
+              field: id_fecha
+
+      - name: id_pais_origen
+        description: "Clave foránea geográfica (Role-playing dimension). Conecta con 'dim_paises' para analizar a los atacantes (Ej: Estados Unidos, Reino Unido)."
+        tests:
+          - relationships:
+              to: ref('dim_paises')
+              field: id_pais
+
+      - name: id_pais_objetivo
+        description: "Clave foránea geográfica (Role-playing dimension). Conecta de nuevo con 'dim_paises' para analizar a los defensores/territorios atacados."
+        tests:
+          - relationships:
+              to: ref('dim_paises')
+              field: id_pais
+
+      - name: id_aeronave
+        description: "Clave foránea técnica. Conecta con 'dim_flota_aerea' para analizar el rendimiento por modelo de avión."
+        tests:
+          - relationships:
+              to: ref('dim_flota_aerea')
+              field: id_aeronave
+
+      - name: id_objetivo
+        description: "Clave foránea táctica. Conecta con 'dim_tipos_objetivo' para desglosar qué tipo de infraestructuras se destruyeron."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_tipos_objetivo')
+              field: id_objetivo
+
+      - name: altitud_cientos_pies
+        description: "Altitud a la que se realizó el bombardeo (en cientos de pies). En Power BI, usar la agregación 'Promedio' para tus KPIs de la Página 2."
+
+      - name: total_toneladas_bombas
+        description: "Métrica principal de daño. Peso total de las bombas lanzadas. En Power BI, usar la agregación 'Suma' para el tamaño de las burbujas en el mapa y los gráficos de áreas/barras."
+
+      - name: latitud_objetivo
+        description: "Coordenada Y del lugar del impacto. Crucial para el mapa interactivo de la Página 1."
+        
+      - name: longitud_objetivo
+        description: "Coordenada X del lugar del impacto. Crucial para el mapa interactivo de la Página 1."

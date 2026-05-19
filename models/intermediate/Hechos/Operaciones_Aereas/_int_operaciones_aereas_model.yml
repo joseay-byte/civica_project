@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: int_operaciones_aereas
+    description: "Tabla de hechos transaccional de operaciones aéreas y misiones de bombardeo."
+    columns:
+      - name: id_operacion
+        description: "Clave primaria de la misión."
+        tests:
+          - unique
+          - not_null
+      - name: id_fecha
+        description: "Clave foránea de la fecha de la misión."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_calendario')
+              field: id_fecha
+      - name: id_pais_origen
+        description: "Clave foránea del país que lanza el ataque."
+        tests:
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais
+      - name: id_pais_objetivo
+        description: "Clave foránea del país que recibe el ataque."
+        tests:
+          - relationships:
+              to: ref('int_paises')
+              field: id_pais
+      - name: id_aeronave
+        description: "Clave foránea del tipo de avión utilizado."
+        tests:
+          - relationships:
+              to: ref('int_flota_aerea')
+              field: id_aeronave
+      - name: id_objetivo
+        description: "Clave foránea del tipo de blanco atacado."
+        tests:
+          - relationships:
+              to: ref('int_tipos_objetivo')
+              field: id_objetivo

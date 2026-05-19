@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_tipos_objetivo
+    description: "Catálogo dimensional para clasificar la naturaleza de los objetivos estratégicos atacados."
+    columns:
+      - name: id_objetivo
+        description: "Clave primaria (Hash de tipo de objetivo + industria objetivo)."
+        tests:
+          - unique
+          - not_null

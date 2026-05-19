@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_clima_diario
+    description: "Tabla de hechos que registra las condiciones meteorológicas diarias por estación."
+    columns:
+      - name: id_registro_clima
+        description: "Clave primaria de la medición diaria."
+        tests:
+          - unique
+          - not_null
+      - name: id_estacion
+        description: "Clave foránea hacia la dimensión de estaciones de clima."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_estaciones_clima')
+              field: id_estacion
+      - name: id_fecha
+        description: "Clave foránea hacia la dimensión de calendario."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_calendario')
+              field: id_fecha

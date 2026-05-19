@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_flota_aerea
+    description: "Dimensión del catálogo de aeronaves (Capa Gold). Registra los modelos de aviones de combate (ej: B24, P51) y las fuerzas aéreas asociadas (ej: 5 AF, RAF). Es la pieza central para analizar el rendimiento y la capacidad de la flota en los reportes."
+    config:
+      tags: ['gold', 'dimension']
+
+    columns:
+      - name: id_aeronave
+        description: "Clave primaria subrogada (Hash MD5) generada a partir del modelo de avión y la fuerza aérea. Conecta directamente con 'fct_operaciones_aereas'."
+        tests:
+          - unique
+          - not_null
+
+      - name: modelo_aeronave
+        description: "Modelo técnico o comercial de la aeronave utilizado en la misión (Ej: B25, B17, HUDSON). Actúa como eje analítico principal y segmentador en Power BI."
+        tests:
+          - not_null
+
+      - name: fuerza_aerea
+        description: "Unidad militar o fuerza aérea a la que pertenecía la flota en dicha misión (Ej: 15 AF, RAAF, RAF)."
+        tests:
+          - not_null
