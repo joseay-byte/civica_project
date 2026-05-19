@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_eventos_historicos
+    description: "Tabla de hechos (Factless Fact Table) que registra los hitos cronológicos, tratados y batallas del conflicto."
+    columns:
+      - name: id_evento
+        description: "Clave primaria del evento histórico."
+        tests:
+          - unique
+          - not_null
+      - name: id_fecha_inicio
+        description: "Clave foránea que conecta la fecha de inicio del evento con el calendario."
+        tests:
+          - relationships:
+              to: ref('int_calendario')
+              field: id_fecha

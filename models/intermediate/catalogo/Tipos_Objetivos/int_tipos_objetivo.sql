@@ -27,7 +27,7 @@ categorias_asignadas AS (
             WHEN tipo_objetivo LIKE '%ROAD%' OR tipo_objetivo LIKE '%BRIDGE%' OR tipo_objetivo LIKE '%HIGHWAY%' OR tipo_objetivo LIKE '%VEHICLE%' OR tipo_objetivo LIKE '%TRANSPORT%' THEN 'Infraestructura Vial y Puentes'
             
             -- 4. Naval y Puertos
-            WHEN tipo_objetivo LIKE '%PORT%' OR tipo_objetivo LIKE '%SHIP%' OR tipo_objetivo LIKE '%SUBMARINE%' OR tipo_objetivo LIKE '%NAVAL%' OR tipo_objetivo LIKE '%DOCK%' OR tipo_objetivo LIKE '%WATER%' LIKE '%PORTS%' THEN 'Infraestructura Naval y Puertos'
+            WHEN tipo_objetivo LIKE '%PORT%' OR tipo_objetivo LIKE '%SHIP%' OR tipo_objetivo LIKE '%SUBMARINE%' OR tipo_objetivo LIKE '%NAVAL%' OR tipo_objetivo LIKE '%DOCK%' OR tipo_objetivo LIKE '%WATER%' OR tipo_objetivo LIKE '%PORTS%' THEN 'Infraestructura Naval y Puertos'
             
             -- 5. Defensas y Artillería
             WHEN tipo_objetivo LIKE '%GUN%' OR tipo_objetivo LIKE '%FLAK%' OR tipo_objetivo LIKE '%DEFENSE%' OR tipo_objetivo LIKE '%RADAR%' OR tipo_objetivo LIKE '%EMPLACEMENT%' THEN 'Defensas y Artillería'

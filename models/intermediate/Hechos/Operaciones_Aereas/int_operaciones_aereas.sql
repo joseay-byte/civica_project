@@ -51,11 +51,13 @@ paises_normalizados AS (
 operaciones_agrupadas AS (
     SELECT
         MISSION_DATE, pais_origen_norm, pais_objetivo_norm,
+
         UPPER(TRIM(AIRCRAFT_MODEL)) AS modelo_avion,
         UPPER(TRIM(AIR_FORCE)) AS fuerza_aerea,
-        UPPER(TRIM(TARGET_TYPE)) AS tipo_objetivo,
-        UPPER(TRIM(TARGET_INDUSTRY)) AS industria_objetivo,
+        COALESCE(UPPER(TRIM(TARGET_TYPE)), 'UNKNOWN') AS tipo_objetivo,
+        COALESCE(UPPER(TRIM(TARGET_INDUSTRY)), 'UNKNOWN') AS industria_objetivo,
         CAST(TAKEOFF_LATITUDE AS FLOAT) AS lat_origen,
+
         CAST(TAKEOFF_LONGITUDE AS FLOAT) AS lon_origen,
         CAST(TARGET_LATITUDE AS FLOAT) AS lat_objetivo,
         CAST(TARGET_LONGITUDE AS FLOAT) AS lon_objetivo,
@@ -76,7 +78,8 @@ SELECT
     CASE WHEN NULLIF(pais_origen_norm, '') IS NOT NULL THEN {{ dbt_utils.generate_surrogate_key(['pais_origen_norm']) }} ELSE NULL END AS id_pais_origen,
     CASE WHEN NULLIF(pais_objetivo_norm, '') IS NOT NULL THEN {{ dbt_utils.generate_surrogate_key(['pais_objetivo_norm']) }} ELSE NULL END AS id_pais_objetivo,
     CASE WHEN NULLIF(modelo_avion, '') IS NOT NULL OR NULLIF(fuerza_aerea, '') IS NOT NULL THEN {{ dbt_utils.generate_surrogate_key(['modelo_avion', 'fuerza_aerea']) }} ELSE NULL END AS id_aeronave,
-    CASE WHEN NULLIF(tipo_objetivo, '') IS NOT NULL OR NULLIF(industria_objetivo, '') IS NOT NULL THEN {{ dbt_utils.generate_surrogate_key(['tipo_objetivo', 'industria_objetivo']) }} ELSE NULL END AS id_objetivo,
+    
+    {{ dbt_utils.generate_surrogate_key(['tipo_objetivo', 'industria_objetivo']) }} AS id_objetivo,
 
     altitud_cientos_pies,
     total_toneladas_bombas,
