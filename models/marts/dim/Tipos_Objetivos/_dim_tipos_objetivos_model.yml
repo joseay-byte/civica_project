@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_tipos_objetivo
+    description: "Dimensión del catálogo de objetivos atacados (Capa Gold). Permite clasificar los blancos de los bombardeos desde un nivel de detalle granular (tipo e industria) hasta un nivel agregado (macro categoría)."
+    config:
+      tags: ['gold', 'dimension']
+
+    columns:
+      - name: id_objetivo
+        description: "Clave primaria subrogada (Hash MD5) que identifica la combinación única de tipo e industria del objetivo. Conecta con 'fct_operaciones_aereas'."
+        tests:
+          - unique
+          - not_null
+
+      - name: tipo_objetivo
+        description: "Descripción original y granular del tipo de blanco atacado (Ej: BRIDGE, FACTORY, TROOP CONCENTRATION). Se usa en el nivel de jerarquía bajo del gráfico de barras."
+        tests:
+          - not_null
+
+      - name: industria_objetivo
+        description: "Sector industrial o de infraestructura al que pertenece el objetivo. Se utiliza como leyenda para aportar más contexto al tipo de ataque."
+        tests:
+          - not_null
+
+      - name: macro_categoria
+        description: "Agrupación analítica de alto nivel generada por reglas de negocio (Ej: 'Infraestructura Ferroviaria', 'Táctico y Tropas'). Es el eje principal (Y) para los análisis a vista de pájaro en Power BI."
+        tests:
+          - not_null

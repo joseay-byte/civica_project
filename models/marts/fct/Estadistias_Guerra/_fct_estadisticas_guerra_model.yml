@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fct_estadisticas_guerra
+    description: "Tabla de hechos de nivel agregado (Capa Gold) que contiene el impacto demográfico y las bajas por país. Alimenta la Página 6 del dashboard en Power BI para analizar el costo humano del conflicto."
+    config:
+      tags: ['gold', 'fact']
+
+    columns:
+      - name: id_estadistica
+        description: "Clave primaria subrogada (Hash MD5) del registro estadístico."
+        tests:
+          - unique
+          - not_null
+
+      - name: id_pais
+        description: "Clave foránea que conecta las estadísticas vitales con la dimensión de países ('dim_paises'). Permite filtrar por bloque (Eje/Aliados) y continente."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_paises')
+              field: id_pais
+
+      - name: poblacion_1939
+        description: "Población total del país al inicio del conflicto (1939). Base para el cálculo de impacto demográfico."
+        
+      - name: muertes_militares
+        description: "Total de bajas de personal militar. En Power BI, usar agregación 'Suma' para los KPIs."
+
+      - name: muertes_civiles
+        description: "Total de bajas de población civil. En Power BI, usar agregación 'Suma'."
+
+      - name: muertes_totales
+        description: "Suma total de muertes (civiles + militares). Se utiliza en el eje Y del gráfico de dispersión de Power BI."
+
+      - name: heridos_militares
+        description: "Total de personal militar herido en combate."
+
+      - name: porcentaje_muertes_poblacion
+        description: "Porcentaje de la población total de 1939 que pereció en el conflicto (muertes_totales / poblacion_1939). Viene precalculado desde la fuente."

@@ -8,6 +8,10 @@ seeds:
         description: "Nombre estandarizado del país o región militar."
         tests:
           - not_null
+      - name: nombre_pais_es
+        description: "Nombre del pais en español"
+        tests:
+          - not_null
       - name: iso_2
         description: "Código proxy de 2 caracteres utilizado para los cruces con datos de clima."
         tests:
