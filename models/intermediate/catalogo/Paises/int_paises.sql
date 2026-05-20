@@ -10,8 +10,6 @@ paises_agrupados AS (
         MAX(UPPER(TRIM(iso_2))) AS codigo_pais,
         MAX(TRIM(continent)) AS continente,
         MAX(UPPER(TRIM(iso_3))) AS codigo_iso3,
-        MAX(is_axis) AS is_axis,
-        MAX(is_allied) AS is_allied
     FROM seed_paises
     GROUP BY TRIM(country_name), TRIM(nombre_pais_es)
 )
@@ -20,10 +18,5 @@ SELECT
     nombre_pais,
     codigo_pais,
     continente,
-    codigo_iso3,
-    CASE 
-        WHEN is_axis = 1 THEN 'Axis'
-        WHEN is_allied = 1 THEN 'Allies'
-        ELSE 'Neutral/Other'
-    END AS bando_principal
+    codigo_iso3
 FROM paises_agrupados
