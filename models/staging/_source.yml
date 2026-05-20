@@ -5,6 +5,10 @@ sources:
     # Usamos Jinja para que la base de datos cambie según el entorno
     database: "{{ env_var('DBT_BRONZE_DB', 'DB35_DEV_BRONZE_DB') }}"
     schema: dbt
+    config:
+      freshness:
+        warn_after: {count: 24, period: hour} # Avisa si no se actualiza en 24h
+        error_after: {count: 48, period: hour} # Falla si no se actualiza en 48h
     tables:
       - name: RAW_LOCATIONS
         description: "Ubicaciones estratégicas e infraestructuras militares utilizadas en la guerra."

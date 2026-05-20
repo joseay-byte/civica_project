@@ -51,7 +51,7 @@ models:
               field: id_objetivo
 
       - name: altitud_cientos_pies
-        description: "Altitud a la que se realizó el bombardeo (en cientos de pies). En Power BI, usar la agregación 'Promedio' para tus KPIs de la Página 2."
+        description: "Altitud a la que se realizó el bombardeo (en cientos de pies). En Power BI, usar la agregación 'Promedio' para las KPIs de la Página 2."
 
       - name: total_toneladas_bombas
         description: "Métrica principal de daño. Peso total de las bombas lanzadas. En Power BI, usar la agregación 'Suma' para el tamaño de las burbujas en el mapa y los gráficos de áreas/barras."
