@@ -37,3 +37,11 @@ El sistema se estructura en tres capas lógicas implementadas sobre **Snowflake*
 │        └──            # Carpetas para cada tabla `dim` y `fct` con su modelo y sql
 ├── seeds/              # Archivos CSV para mapeo de datos maestros
 └── dbt_project.yml     # Configuración del proyecto y entornos
+```
+## Ejecución y Mantenimiento
+
+El pipeline está diseñado para operar de forma modular:
+
+* **Semillas (Seeds): Los datos maestros se actualizan mediante `dbt seed`.**
+* **Transformación: El ciclo de vida de los datos se ejecuta mediante `dbt run`, asegurando la propagación de cambios desde la capa Bronze hasta la capa Gold.**
+* **Validación: La integridad del sistema se verifica mediante `dbt test`, garantizando que solo los datos validados sean accesibles para la toma de decisiones estratégicas.**
