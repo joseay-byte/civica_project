@@ -9,8 +9,3 @@ models:
         tests:
           - unique
           - not_null
-      - name: bando_principal
-        description: "Clasificación analítica del bando para el modelo estrella."
-        tests:
-          - accepted_values:
-              values: ['Allies', 'Axis', 'Neutral/Other']

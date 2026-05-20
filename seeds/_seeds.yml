@@ -20,13 +20,3 @@ seeds:
         description: "Código internacional estándar de 3 caracteres."
       - name: continent
         description: "Continente geográfico al que pertenece la entidad."
-      - name: is_axis
-        description: "Indicador binario (1/0) si el país perteneció formalmente a las potencias del Eje."
-        tests:
-          - accepted_values:
-              arguments: [0, 1]
-      - name: is_allied
-        description: "Indicador binario (1/0) si el país perteneció formalmente al bando Aliado."
-        tests:
-          - accepted_values:
-              values: [0, 1]
