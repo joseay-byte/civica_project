@@ -2,7 +2,6 @@
 
 Este repositorio contiene la arquitectura de transformación de datos mediante **dbt (data build tool)** para el análisis histórico del conflicto de la Segunda Guerra Mundial. El proyecto implementa una arquitectura de datos moderna basada en el **modelo Medallón**, integrando datos provenientes de fuentes heterogéneas para alimentar un sistema de Inteligencia de Negocio avanzado.
 
-![Arquitectura de Datos](https://www.databricks.com/wp-content/uploads/2021/06/Medallion-Architecture.png)
 
 ## Arquitectura del Proyecto
 
