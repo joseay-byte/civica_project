@@ -13,4 +13,4 @@ exposures:
       - ref('fct_estadisticas_guerra')
     owner:
       name: Jose Rosell
-      email: joserosellbonavina@gmail.com # Pon tu correo aquí
+      email: joserosellbonavina@gmail.com
