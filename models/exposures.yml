@@ -1,0 +1,16 @@
+version: 2
+
+exposures:
+  - name: dashboard_ww2_historico
+    label: Dashboard Histórico WW2
+    type: dashboard
+    maturity: high
+    url: https://app.powerbi.com/groups/me/reports/cea5a5c8-5471-4e80-819b-aeaaf943dc19/1851870e3f502536c54a?ctid=5b44cb42-0e4b-4b5e-9408-1cf1b074deb2&experience=power-bi&bookmarkGuid=2ca22d7b4ba3a0715bc9
+    description: "Dashboard analítico de operaciones aéreas, clima y estadísticas de guerra de la IIGM, utilizado para el reporte de fin de proyecto."
+    depends_on:
+      - ref('fct_operaciones_aereas')
+      - ref('fct_clima_diario')
+      - ref('fct_estadisticas_guerra')
+    owner:
+      name: Jose Rosell
+      email: joserosellbonavina@gmail.com

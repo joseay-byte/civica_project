@@ -24,7 +24,7 @@ seeds:
         description: "Indicador binario (1/0) si el país perteneció formalmente a las potencias del Eje."
         tests:
           - accepted_values:
-              values: [0, 1]
+              arguments: [0, 1]
       - name: is_allied
         description: "Indicador binario (1/0) si el país perteneció formalmente al bando Aliado."
         tests:
