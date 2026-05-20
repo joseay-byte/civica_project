@@ -12,6 +12,5 @@ select
     nombre_pais,
     codigo_pais,
     continente,
-    codigo_iso3,
-    bando_principal
+    codigo_iso3
 from paises_silver

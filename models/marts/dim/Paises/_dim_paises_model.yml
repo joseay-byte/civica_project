@@ -26,10 +26,3 @@ models:
 
       - name: codigo_iso3
         description: "Código internacional de 3 letras (ISO-3)."
-
-      - name: bando_principal
-        description: "Alineación histórica principal del país durante el conflicto."
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['Allies', 'Axis', 'Neutral/Other']
